@@ -53,6 +53,17 @@ class Issues extends AbstractApi
         return $this->put($this->getProjectPath($project_id, 'issues/'.$this->encodePath($issue_id)), $params);
     }
 
+   /**
+    *@param int $project_id
+    *@param string $issue_label
+    *@return mixed
+    */
+    public function getIssueByLabel($project_id, $issue_label)
+    {
+ 
+ 	return $this->get($this->getProjectPath($project_id, 'issues?labels='.$this->encodePath($issue_label)));
+    }
+
     /**
      * @param int $project_id
      * @param int $issue_id

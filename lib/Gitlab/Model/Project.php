@@ -757,6 +757,20 @@ class Project extends AbstractModel
     }
 
     /**
+     * @param String $label
+     * @return array()
+     */
+    public function getIssueByLabel($label)
+ 	$data = $this->api('issues')->getIssueByLabel($this->id,$label);
+ 	$issues = array();
+	foreach ($data as $issue){
+	   $issues[] = Issue::fromArray($this->getClient(), $this, $issue);
+ 	}
+ 	
+      return $issues;
+     }
+	
+    /**
      * @param int $page
      * @param int $per_page
      * @return Milestone[]
