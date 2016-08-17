@@ -761,6 +761,7 @@ class Project extends AbstractModel
      * @return array()
      */
     public function getIssueByLabel($label)
+    {
  	$data = $this->api('issues')->getIssueByLabel($this->id,$label);
  	$issues = array();
 	foreach ($data as $issue){
